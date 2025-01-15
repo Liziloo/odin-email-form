@@ -2,10 +2,52 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Webpack App</title>
+        <title>Email Form</title>
     </head>
     <body>
-        <div id="content"></div>   
+        <div class="container">
+            <form novalidate>
+                <div class="input-set email">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="email" autofocus required>
+                    <div class="invalid-message"></div>
+                </div>
+                <div>
+                    <div class="input-set country">
+                        <label>Country:</label>
+                        <select id="country" name="country" required>
+                            <option selected disabled>-------</option>
+                        </select>
+                        <div class="invalid-message"></div>
+                    </div>
+                    <div class="input-set zipcode">
+                        <label for="zip">Zipcode:</label>
+                        <input type="text" id="zip" name="zip" required>
+                        <div class="invalid-message"></div>
+                    </div>
+                </div>
+                <div class="input-set password">
+                    <label for="pass">Set Password:</label>
+                    <input type="text" id="pass" name="pass" required>
+                    <div class="invalid-set">
+                        <div class="invalid-message"></div>
+                        <div class="invalid-message"></div>
+                        <div class="invalid-message"></div>
+                        <div class="invalid-message"></div>
+                    </div>
+                </div>
+                <div class="input-set confirm">
+                    <label for="confirm">Confirm Password</label>
+                    <input type="text" id="confirm" name="confirm" required>
+                    <div class="invalid-message"></div>
+                </div>
+                <div>
+                    <button>Submit</button>
+                    <div class="invalid-message"></div>
+                </div>
+            </form>
+        </div>
+        
     </body>
     
 </html>
