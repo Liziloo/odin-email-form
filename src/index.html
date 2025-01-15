@@ -18,32 +18,32 @@
                         <select id="country" name="country" required>
                             <option selected disabled>-------</option>
                         </select>
-                        <div class="invalid-message country"></div>
+                        <div class="invalid-message country">Please select your country.</div>
                     </div>
                     <div class="input-set zipcode">
                         <label for="zip">Zipcode:</label>
                         <input type="text" id="zip" name="zip" required>
-                        <div class="invalid-message zip"></div>
+                        <div class="invalid-message zip">Please enter a valid zipcode.</div>
                     </div>
                 </div>
                 <div class="input-set password">
                     <label for="pass">Set Password:</label>
                     <input type="text" id="pass" name="pass" required>
                     <div class="invalid-set">
-                        <div class="invalid-message"></div>
-                        <div class="invalid-message"></div>
-                        <div class="invalid-message"></div>
-                        <div class="invalid-message"></div>
+                        <div class="invalid-message length">Your password must be at least 10 characters long.</div>
+                        <div class="invalid-message number">Your password must contain at least one number.</div>
+                        <div class="invalid-message symbol">Your password must contain at least one of the following: $ , # ? ! @ % ^ & * .</div>
+                        <div class="invalid-message space">Your password may not contain any spaces.</div>
                     </div>
                 </div>
                 <div class="input-set confirm">
                     <label for="confirm">Confirm Password</label>
                     <input type="text" id="confirm" name="confirm" required>
-                    <div class="invalid-message"></div>
+                    <div class="invalid-message">Confirmation does not match password.</div>
                 </div>
                 <div>
                     <button>Submit</button>
-                    <div class="invalid-message"></div>
+                    <div class="invalid-message">Please fix invalid form entries.</div>
                 </div>
             </form>
         </div>

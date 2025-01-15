@@ -1,3 +1,7 @@
+.invalid-message {
+    display: flex;
+}
+
 .invalid {
     width: 20px;
 }
