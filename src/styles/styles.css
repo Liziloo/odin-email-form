@@ -1,5 +1,9 @@
+.input-set {
+    display: grid;
+}
+
 .invalid-message {
-    display: flex;
+    display: none;
 }
 
 .invalid {

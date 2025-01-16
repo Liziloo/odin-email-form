@@ -11,9 +11,12 @@ invalidDivs.forEach((div) => {
 })
 
 const emailInput = document.querySelector('#email');
-emailInput.onfocusout = () => {
+emailInput.onblur = () => {
+    const messageDiv = document.querySelector('.invalid-message.email');
     if (!emailInput.checkValidity()) {
-        
+        messageDiv.style.display = 'flex';
+    } else {
+        messageDiv.style.display = 'none';
     }
 }
 
