@@ -6,6 +6,10 @@
     display: none;
 }
 
-.invalid {
+.invalid-message.invalid {
+    display: flex;
+}
+
+.invalid-icon {
     width: 20px;
 }
