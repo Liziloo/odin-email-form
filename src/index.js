@@ -66,6 +66,10 @@ passInput.onblur = () => {
 
 
 const confirmInput = document.querySelector('#confirm');
+confirmInput.onblur = () => {
+    const isValid = passInput.value === confirmInput.value ? true: false;
+    setInputClass('confirm', isValid);
+}
 
 const submitButton = document.querySelector('.submit');
 submitButton.addEventListener('click', (e) => {
