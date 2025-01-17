@@ -4,7 +4,7 @@ import invalidIcon from './images/alpha-x-circle-outline.svg';
 
 
 const countries = ['United States', 'United Kingdom', 'Canada'];
-
+const myForm = document.querySelector('form');
 
 const inputs = document.querySelectorAll('input');
 inputs.forEach((input) => {
@@ -93,25 +93,22 @@ confirmInput.onblur = () => {
     setInputClass('confirm', isValid);
 }
 
-const submitButton = document.querySelector('.submit');
-submitButton.addEventListener('click', (e) => {
+myForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const checkDivs = () => {
-        invalidDivs.forEach((div) => {
-            if (div.classList.contains('invalid')) {
-                return false;
-            }
-            return true;
-        })
+    const invalidMessage = document.getElementsByClassName('invalid-message submission')[0];
+    if (!myForm.checkValidity() || !checkInputs()) {
+        invalidMessage.classList.add('invalid');
+    } else {
+        invalidMessage.classList.remove('invalid');
     }
-    const checkInputs = () => {
-        inputs.forEach((input) => {
-            if (input.value === '') {
-                return false;
-            }
-        })
-        return true;
-    }
-    const isValid = checkDivs() && checkInputs() ? true : false;
-    setInputClass('submission', isValid);
 })
+
+const checkInputs = () => {
+    let isValid = true;
+    inputs.forEach((input) => {
+        if (input.value === '') {
+            isValid = false;
+        }
+    })
+    return isValid
+}
