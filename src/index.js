@@ -5,6 +5,12 @@ import invalidIcon from './images/alpha-x-circle-outline.svg';
 
 const countries = ['United States', 'United Kingdom', 'Canada'];
 
+
+const inputs = document.querySelectorAll('input');
+inputs.forEach((input) => {
+    input.setCustomValidity('');
+})
+
 const invalidDivs = document.querySelectorAll('.invalid-message');
 invalidDivs.forEach((div) => {
     const icon = document.createElement('img');
@@ -15,8 +21,14 @@ invalidDivs.forEach((div) => {
 
 const setInputClass = (field, isValid) => {
     const messageDiv = document.querySelector(`.invalid-message.${field}`);
+
     const currentInput = document.querySelector(`input#${field}`);
-    console.log(currentInput);
+    if (currentInput) {
+        currentInput.setCustomValidity('');
+    } else {
+        const passInput = document.querySelector('input#pass');
+        passInput.setCustomValidity('');
+    }
     isValid ? 
         messageDiv.classList.remove('invalid') && currentInput.setCustomValidity('') : messageDiv.classList.add('invalid') && currentInput.setCustomValidity('Error');
 }
@@ -65,6 +77,13 @@ passInput.onblur = () => {
     setInputClass('number', digitRegex.test(passInput.value) ? true: false);
     setInputClass('symbol', symbolRegex.test(passInput.value) ? true: false);
     setInputClass('space', spaceRegex.test(passInput.value) ? true: false);
+
+    const passInvalidDivs = document.querySelectorAll('.passinvalid');
+    passInvalidDivs.forEach((div) => {
+        if (div.classList.contains('invalid')) {
+            passInput.setCustomValidity('Error');
+        }
+    })
 }
 
 
@@ -86,13 +105,12 @@ submitButton.addEventListener('click', (e) => {
         })
     }
     const checkInputs = () => {
-        const inputs = document.querySelectorAll('input');
         inputs.forEach((input) => {
             if (input.value === '') {
                 return false;
             }
-            return true;
         })
+        return true;
     }
     const isValid = checkDivs() && checkInputs() ? true : false;
     setInputClass('submission', isValid);

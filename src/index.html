@@ -9,37 +9,37 @@
             <form novalidate>
                 <div class="input-set email">
                     <label for="email">Email:</label>
-                    <input id="email" type="email" name="email" autofocus required>
+                    <input id="email" type="email" name="email" autofocus>
                     <div class="invalid-message email"><p>Please enter a valid email address.</p></div>
                 </div>
                 <div>
                     <div class="input-set country">
                         <label for="country">Country:</label>
-                        <select id="country" name="country" required>
+                        <select id="country" name="country">
                             <option selected disabled>-------</option>
                         </select>
                         <div class="invalid-message country">Please select your country.</div>
                     </div>
                     <div class="input-set zipcode">
                         <label for="zip">Zipcode:</label>
-                        <input type="text" id="zip" name="zip" required>
+                        <input type="text" id="zip" name="zip">
                         <div class="invalid-message zip">Please enter a valid zipcode.</div>
                     </div>
                 </div>
                 <div class="input-set password">
                     <label for="pass">Set Password:</label>
-                    <input type="text" id="pass" name="pass" required>
+                    <input type="text" id="pass" name="pass">
                     <div class="invalid-set">
-                        <div class="invalid-message length">Your password must be at least 8 characters long.</div>
-                        <div class="invalid-message letter">Your password must contain at least one letter.</div>
-                        <div class="invalid-message number">Your password must contain at least one number.</div>
-                        <div class="invalid-message symbol">Your password must contain at least one of the following: $ , # ? ! @ % ^ & * .</div>
-                        <div class="invalid-message space">Your password may not contain any spaces.</div>
+                        <div class="invalid-message length passinvalid">Your password must be at least 8 characters long.</div>
+                        <div class="invalid-message letter passinvalid">Your password must contain at least one letter.</div>
+                        <div class="invalid-message number passinvalid">Your password must contain at least one number.</div>
+                        <div class="invalid-message symbol passinvalid">Your password must contain at least one of the following: $ , # ? ! @ % ^ & * .</div>
+                        <div class="invalid-message space passinvalid">Your password may not contain any spaces.</div>
                     </div>
                 </div>
                 <div class="input-set confirm">
                     <label for="confirm">Confirm Password</label>
-                    <input type="text" id="confirm" name="confirm" required>
+                    <input type="text" id="confirm" name="confirm">
                     <div class="invalid-message confirm">Confirmation does not match password.</div>
                 </div>
                 <div>
