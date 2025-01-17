@@ -15,7 +15,10 @@ invalidDivs.forEach((div) => {
 
 const setInputClass = (field, isValid) => {
     const messageDiv = document.querySelector(`.invalid-message.${field}`);
-    isValid ? messageDiv.classList.remove('invalid') : messageDiv.classList.add('invalid');
+    const currentInput = document.querySelector(`input#${field}`);
+    console.log(currentInput);
+    isValid ? 
+        messageDiv.classList.remove('invalid') && currentInput.setCustomValidity('') : messageDiv.classList.add('invalid') && currentInput.setCustomValidity('Error');
 }
 
 const emailInput = document.querySelector('#email');
@@ -57,7 +60,7 @@ passInput.onblur = () => {
     const symbolRegex = /^(?=.*[$,#?!@%^&*.])/;
     const spaceRegex = /^(?!.*\s)/;
 
-    setInputClass('length', passInput.value > 8 && passInput.value < 20 ? true : false);
+    setInputClass('length', passInput.value.length > 7 && passInput.value.length < 20 ? true : false);
     setInputClass('letter', lowerRegex.test(passInput.value) ? true : false);
     setInputClass('number', digitRegex.test(passInput.value) ? true: false);
     setInputClass('symbol', symbolRegex.test(passInput.value) ? true: false);
