@@ -100,6 +100,7 @@ myForm.addEventListener('submit', (e) => {
         invalidMessage.classList.add('invalid');
     } else {
         invalidMessage.classList.remove('invalid');
+        myForm.submit();
     }
 })
 
