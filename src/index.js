@@ -15,7 +15,7 @@ invalidDivs.forEach((div) => {
 
 const setInputClass = (field, isValid) => {
     const messageDiv = document.querySelector(`.invalid-message.${field}`);
-    !isValid ? messageDiv.classList.add('invalid') : messageDiv.classList.remove('invalid');
+    isValid ? messageDiv.classList.remove('invalid') : messageDiv.classList.add('invalid');
 }
 
 const emailInput = document.querySelector('#email');
@@ -51,6 +51,42 @@ zipInput.onblur = () => {
 }
 
 const passInput = document.querySelector('#pass');
+passInput.onblur = () => {
+    const lowerRegex = /^(?=.*[a-zA-Z])/;
+    const digitRegex = /^(?=.*\d+)/;
+    const symbolRegex = /^(?=.*[$,#?!@%^&*.])/;
+    const spaceRegex = /^(?!.*\s)/;
+
+    setInputClass('length', passInput.value > 8 && passInput.value < 20 ? true : false);
+    setInputClass('letter', lowerRegex.test(passInput.value) ? true : false);
+    setInputClass('number', digitRegex.test(passInput.value) ? true: false);
+    setInputClass('symbol', symbolRegex.test(passInput.value) ? true: false);
+    setInputClass('space', spaceRegex.test(passInput.value) ? true: false);
+}
+
 
 const confirmInput = document.querySelector('#confirm');
 
+const submitButton = document.querySelector('.submit');
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const checkDivs = () => {
+        invalidDivs.forEach((div) => {
+            if (div.classList.contains('invalid')) {
+                return false;
+            }
+            return true;
+        })
+    }
+    const checkInputs = () => {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach((input) => {
+            if (input.value === '') {
+                return false;
+            }
+            return true;
+        })
+    }
+    const isValid = checkDivs() && checkInputs() ? true : false;
+    setInputClass('submission', isValid);
+})

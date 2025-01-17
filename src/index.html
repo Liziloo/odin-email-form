@@ -30,7 +30,8 @@
                     <label for="pass">Set Password:</label>
                     <input type="text" id="pass" name="pass" required>
                     <div class="invalid-set">
-                        <div class="invalid-message length">Your password must be at least 10 characters long.</div>
+                        <div class="invalid-message length">Your password must be at least 8 characters long.</div>
+                        <div class="invalid-message letter">Your password must contain at least one letter.</div>
                         <div class="invalid-message number">Your password must contain at least one number.</div>
                         <div class="invalid-message symbol">Your password must contain at least one of the following: $ , # ? ! @ % ^ & * .</div>
                         <div class="invalid-message space">Your password may not contain any spaces.</div>
@@ -42,8 +43,8 @@
                     <div class="invalid-message confirm">Confirmation does not match password.</div>
                 </div>
                 <div>
-                    <button>Submit</button>
-                    <div class="invalid-message submission">Please fix invalid form entries.</div>
+                    <button class="submit">Submit</button>
+                    <div class="invalid-message submission">Please fill out all fields and fix invalid form entries.</div>
                 </div>
             </form>
         </div>
